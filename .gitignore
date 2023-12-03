@@ -1,0 +1,21 @@
+# cache
+__pycache__
+tranception/__pycache__
+tranception/*.pyc
+tranception/utils/__pycache__
+tranception/utils/*.pyc
+
+# data, checkpoint
+ckpt
+proteingym
+MSA_files
+MSA_weights
+saved
+
+# results
+results
+outputs
+dms-results
+preference*
+wandb
+npys/
