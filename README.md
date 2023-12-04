@@ -42,11 +42,27 @@ python performance.py --input_scoring_files_folder dms-results/$exp_name$ --perf
 ```
 This will evaluate the experiment in terms of correlation metrics.
 
-## Fitness Optimization
+## Fitness Optimization in AAV and ACE2
 See `tasks/`
+
+## Pipeline for Custom DMS assay
+See `tasks/pipeline.py`. You may 
+1. Set `target_seq` value as wild-type sequence
+2. Set `preference` argument as root directory containing the dataset 
+3. Set `DMS_id` argument as directory containing your DMS assay
+4. All datasets should consist of columns `mutant`, `mutated_sequence`, and `DMS_score`. `mutant` should be in conventional format, e.g. R42Q, where multiple mutations joined by : symbol. Due to the behavior of pandas `join` functions in tranception scoring utils, I recommend to **delete other columns**.
+
+```
+$preference$/
+   $DMS_id$/
+      dms_train.csv
+      dms_test.csv
+      dms_val.csv
+      sft.csv
+```
 
 ## Reproduce the Figures
 See `draw_figure.ipynb`. Note that `total.csv` contains Spearman's rho correlation of Ours, Alpha-Missense,Tranception Large, Tranception Large (no retrieval), EVE, and ESM1v in ProteinGym benchmark.
 
-### TODO
+## TODO
 - [ ] Support LoRA
